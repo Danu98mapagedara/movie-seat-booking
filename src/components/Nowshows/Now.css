@@ -1,0 +1,76 @@
+.nowshows-container {
+    text-align: center;
+    padding: 2rem;
+    background-color: #f9f9f9;
+  }
+  
+  .nowshows-container h1 {
+    margin-bottom: 1.5rem;
+    font-size: 2rem;
+    color: #333;
+  }
+  
+  .nowshows-swiper {
+    width: 80%;
+    margin: 0 auto;
+  }
+  
+  .card {
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 1rem;
+    text-align: center;
+    transition: transform 0.3s;
+  }
+  
+  .card:hover {
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+  }
+  
+  .card-image {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+  }
+  
+  .card-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 0.5rem;
+  }
+  
+  .card-buttons button {
+    background: #007bff;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+  }
+  
+  .card-buttons button:hover {
+    background: #0056b3;
+  }
+  
+  .swiper-button-next,
+  .swiper-button-prev {
+    color: #007bff;
+    transition: transform 0.2s;
+  }
+  
+  .swiper-button-next:hover,
+  .swiper-button-prev:hover {
+    transform: scale(1.2);
+  }
+  
+  .swiper-pagination-bullet {
+    background: #007bff;
+  }
+  
+  .swiper-pagination-bullet-active {
+    background: #0056b3;
+  }
+  

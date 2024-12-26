@@ -1,5 +1,6 @@
 import React from 'react'
 import Comingsoon from '../../components/Comingsoon/Comingsoon'
+import Nowshows from '../../components/Nowshows/Nowshows'
 
 const Home = () => {
   return (
@@ -7,6 +8,8 @@ const Home = () => {
 
 <div className="now-showing">
     <Comingsoon/>
+    <br />
+    <Nowshows/>
 </div>
 
 
