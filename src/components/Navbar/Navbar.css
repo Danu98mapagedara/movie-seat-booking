@@ -6,7 +6,7 @@
     padding: 0 180px;
     background-color: transparent;
     height: 80px;
-    position: fixed;
+    position: relative;
     z-index: 9999;
 }
 .blur::before{
