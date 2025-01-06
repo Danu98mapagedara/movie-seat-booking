@@ -9,6 +9,7 @@ import Navbar from './components/Navbar/Navbar'
 // import Sliderimages from './components/Sliderimages/Sliderimages'
 import Footer from './components/Footer/Footer'
 import Home from './pages/Home/Home'
+import Contact from './pages/Contact/Contact'
 
 
 function App() {
@@ -19,9 +20,9 @@ function App() {
         <Navbar/>
         { <Routes>
           <Route path="/" element={<Home />} />
-        
+        <Route path="contact" element={<Contact/>}/>
         </Routes>}
-        <Footer/> 
+        {/* <Footer/>  */}
       </Router>
     </>
   )
