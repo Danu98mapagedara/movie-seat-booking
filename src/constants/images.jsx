@@ -9,6 +9,10 @@ import vidu from '../assets/images/vidu.jpg';
 import solotown from '../assets/images/solotown.jpg';
 import redone from '../assets/images/redone.jpg';
 import moana from '../assets/images/moana.jpg';
+import karate from '../assets/images/karatekid.jpg';
+import bradpit from '../assets/images/bradpit.jpg';
+import mickey from '../assets/images/mickey.jpg';
+import den from '../assets/images/den.jpg';
 
 
 
@@ -23,7 +27,10 @@ const images = {
     moana,
     redone,
     solotown,
-   
+   karate,
+   bradpit,
+   mickey,
+   den,
 }
 
 export default images;

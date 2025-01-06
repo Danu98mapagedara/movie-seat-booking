@@ -1,23 +1,23 @@
 import images from './images';
 
 const movielist =[
+ 
   {
-    name: "Mandara",
-    image: images.mandara
+    name: "Brad Pit",
+    image: images.bradpit
   },
   {
-    name: "Design111",
-    image: images.bogunvilla
+    name: "Karate Kid",
+    image: images.karate
   },
   {
-    name: "Design111",
-    image: images.soorya
-  },
-  {
-    name: "Design111",
-     image: images.lockdown
+    name: "DenDen of Thieves",
+     image: images.den
    },
-  
+   {
+    name: "Mickey 17",
+    image: images.mickey
+  },
 
 ]
 
