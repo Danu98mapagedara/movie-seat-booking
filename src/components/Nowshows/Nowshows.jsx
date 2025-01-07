@@ -4,7 +4,7 @@ import data from "../../constants/nowshow";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Navigation } from "swiper/modules";
 import { motion } from "framer-motion";
-import { useNavigate } from "react-router-dom";
+import { useNavigate,Link,useParams } from "react-router-dom";
 
 // Import Swiper styles
 import "swiper/css";
@@ -45,7 +45,11 @@ const Nowshows = () => {
               />
               <h3>{movie.name}</h3>
               <div className="card-buttons">
-                <button onClick={() => handleBookSeat(movie.id)}>Book Seat</button>
+                <Link to={`/bookseat/${movie.id}`}> 
+                Book seat
+                </Link>
+              
+             
                 <button onClick={() => handleViewTrailer(movie.id)}>View Trailer</button>
               </div>
             </div>
