@@ -1,124 +1,48 @@
 import React from "react";
 import "./Footer.css";
-// import images from "../../constants/images";
-import { BiArrowFromLeft, BiArrowFromRight } from "react-icons/bi";
-import { FaArrowRight } from "react-icons/fa";
-import { motion } from "framer-motion";
+
 const Footer = () => {
   return (
-    <div className="footer-container">
-      {/* <img className="footerbackgroundImg" src={images.footerbackground} alt="" /> */}
+    <footer className="footer-container">
       <div className="footer-content">
-        <div className="card">
-          {/* <img src={images.footerImage} alt="" />
-          <img src={images.logo} alt="" /> */}
-          <p> <FlipLink>
-              At MovieVerse, your cinematic adventure begins with us.
-            </FlipLink>
-            <FlipLink>
-              Book tickets for your favorite movies, anytime, anywhere.
-            </FlipLink> </p>
-        </div>
-        <div className="card">
-          <h3>Company</h3>
+        <div className="footer-section">
+          <h3>Cinesha Multiplex</h3>
           <ul>
-          <li><FlipLink href={"/now-showing"}>Now Showing</FlipLink></li>
-            <li><FlipLink href={"/coming-soon"}>Coming Soon</FlipLink></li>
-            <li><FlipLink href={"/offers"}>Special Offers</FlipLink></li>
-            <li><FlipLink href={"/about"}>About Us</FlipLink></li>
-            <li><FlipLink href={"/contact"}>Contact Us</FlipLink></li>
+            <li><a href="#">Buy tickets</a></li>
+            <li><a href="#">Movies</a></li>
+            <li><a href="#">Cinemas</a></li>
+            <li><a href="#">Contact us</a></li>
           </ul>
         </div>
-        <div className="card">
-          <h3>Services</h3>
+        <div className="footer-section">
+          <h3>General</h3>
           <ul>
-          <li><FlipLink>Online Ticket Booking</FlipLink></li>
-            <li><FlipLink>Seat Selection</FlipLink></li>
-            <li><FlipLink>Movie Recommendations</FlipLink></li>
-            <li><FlipLink>Exclusive Membership</FlipLink></li>
-            <li><FlipLink>Gift Cards</FlipLink></li>
+            <li><a href="#">C1 Cinema</a></li>
+            <li><a href="#">C2 Cinema</a></li>
           </ul>
         </div>
-        <div className="card">
-          <h4><FlipLink>Got questions or need assistance?</FlipLink></h4>
-          <h1><FlipLink href={"/contact"}>Let's Talk </FlipLink><FaArrowRight /> </h1>
+        <div className="footer-section newsletter">
+          <h3>Newsletter</h3>
+          <p>Join our mailing list for promotions and latest movie updates.</p>
+          <div className="newsletter-input">
+            <input type="email" placeholder="Type your email address" />
+            <button>Subscribe</button>
+          </div>
         </div>
       </div>
-      <hr />
       <div className="footer-bottom">
-        <p>Copyright © 2024 MovieVerse. All Rights Reserved.</p>
-        <div >
-          <span>Privacy Policy</span>
-          <span>|</span>
-          <span>Terms & condition </span>
+        <div className="social-icons">
+          <a href="#"><i className="fab fa-facebook"></i></a>
+          <a href="#"><i className="fab fa-instagram"></i></a>
+        </div>
+        <p>© 2025 Property Finance and Investments </p>
+        <div className="footer-links">
+          <a href="#">Privacy policy</a>
+          <a href="#">Terms and conditions</a>
         </div>
       </div>
-    </div>
+    </footer>
   );
 };
 
 export default Footer;
-
-const DURATION = 0.25;
-const STAGGER = 0.025
-const FlipLink = ({ children, href }) => {
-  const letters = children.split("").map(l => (l === " " ? "\u00A0" : l));
-  return (
-    <motion.a
-      initial="initial"
-      whileHover="hovered"
-      href={href}
-      className="fliplink"
-      style={{
-        lineHeight: 1,
-      }}
-    >
-      <div>
-        {letters.map((l, i) => (
-          <motion.span
-            variants={{
-              initial: {
-                y: 0,
-              },
-              hovered: {
-                y: "-100%",
-              },
-            }}
-            transition={{
-              duration: DURATION,
-              ease: "easeInOut",
-              delay: STAGGER * i,
-            }}
-            className="inlineblock"
-            key={i}
-          >
-            {l}
-          </motion.span>
-        ))}
-      </div>
-      <div className="downdiv">
-        {letters.map((l, i) => (
-          <motion.span
-            variants={{
-              initial: {
-                y: "100%",
-              },
-              hovered: {
-                y: 0,
-              },
-            }}
-            transition={{
-              duration: DURATION,
-              ease: "easeInOut",
-              delay: STAGGER * i,
-            }}
-            className="inlineblock"
-            key={i}
-          >
-            {l}
-          </motion.span>
-        ))}
-      </div>
-    </motion.a>
-  );
-};

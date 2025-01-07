@@ -2,12 +2,13 @@
     text-align: center;
     padding: 2rem;
     background-color: #f9f9f9;
+    background-image: ();
   }
   
   .nowshows-container h1 {
     margin-bottom: 1.5rem;
     font-size: 2rem;
-    color: #333;
+    color: white;
   }
   
   .nowshows-swiper {
@@ -34,7 +35,16 @@
     border-radius: 10px;
     transition: transform 0.3s ease;
   }
-  
+  .bookseat-btn{
+    background: #007bff;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    text-decoration: none;
+  }
   .card-buttons {
     display: flex;
     justify-content: space-between;

@@ -35,7 +35,7 @@ const Navbar = () => {
     <motion.section initial={{y:-100,opacity:0}} animate={{y:0,opacity:1}} transition={{duration:1}}  className={blur ? "navbar-container blur" : "navbar-container"}>
       <div className="logo">
         <Link to={'/'}>
-          <img src={images.logo} width={100} alt="" />
+          <img src={images.logo} width={80} alt="" />
         </Link>
       </div>
       <div className="nav-links" style={getMenuStyle(open)}>

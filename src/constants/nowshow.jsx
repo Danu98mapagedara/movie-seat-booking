@@ -4,22 +4,26 @@ const nowshow =[
   {
     id:1,
     name: "Mandara",
-    image: images.vidu
+    image: images.vidu,
+    duration:"1h 50min"
   },
   {
     id:2,
-    name: "Design111",
-    image: images.wicked
+    name: "Wicked",
+    image: images.wicked,
+    duration:"2h 50min"
   },
   {
     id:3,
-    name: "Design111",
-    image: images.solotown
+    name: "Solo Town",
+    image: images.solotown,
+    duration:"1h 10min"
   },
   {
     id:4,
-    name: "Design111",
-     image: images.redone
+    name: "Red One",
+     image: images.redone,
+     duration:"3h"
    },
   
 

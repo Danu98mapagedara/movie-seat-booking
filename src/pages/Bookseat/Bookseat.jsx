@@ -51,7 +51,7 @@ const Bookseat = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log("Booking Details:", formData);
-    // Process the form data, e.g., send it to a server
+   
   };
 
   return (

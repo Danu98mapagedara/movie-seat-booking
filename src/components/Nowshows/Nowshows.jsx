@@ -5,7 +5,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Navigation } from "swiper/modules";
 import { motion } from "framer-motion";
 import { useNavigate,Link,useParams } from "react-router-dom";
-
+import images from "../../constants/images";
 // Import Swiper styles
 import "swiper/css";
 import "swiper/css/navigation";
@@ -22,7 +22,11 @@ const Nowshows = () => {
   };
 
   return (
-    <div className="nowshows-container">
+    <div className="nowshows-container"
+    style={{ backgroundImage: `url(${images.c1})` }}
+    
+    >
+      
       <h1>Now Showing</h1>
       <Swiper
         modules={[Autoplay, Navigation]}
@@ -44,8 +48,9 @@ const Nowshows = () => {
                 transition={{ type: "spring", stiffness: 300 }}
               />
               <h3>{movie.name}</h3>
+              <p style={{fontWeight:"bold"}}>{movie.duration}</p>
               <div className="card-buttons">
-                <Link to={`/bookseat/${movie.id}`}> 
+                <Link to={`/bookseat/${movie.id}`} className="bookseat-btn"> 
                 Book seat
                 </Link>
               

@@ -9,7 +9,7 @@ import data from "../../constants/movielist";
 const Comingsoon = () => {
   return (
     <div className="upcomingfilms-container">
-      <h1 className="heading">Coming Soon Films</h1>
+      <h1 className="heading">Coming Soon</h1>
       <Swiper
         modules={[Autoplay, Navigation]}
         spaceBetween={20}
