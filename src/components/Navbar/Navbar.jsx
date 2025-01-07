@@ -43,9 +43,9 @@ const Navbar = () => {
         <NavLink to="/solution" className="nav-link" onClick={handleopen}>Movies</NavLink>
        
         <NavLink to="/about" className="nav-link" onClick={handleopen}>About Us</NavLink>
-        <NavLink to="/about" className="nav-link" onClick={handleopen}>Offers</NavLink>
+        <NavLink to="/cinemas" className="nav-link" onClick={handleopen}>Cinemas</NavLink>
         <NavLink to="/contact" className="nav-link" onClick={handleopen}>Contact Us</NavLink>
-        <NavLink to="/contact" className="nav-link" onClick={handleopen}>Tickets</NavLink>
+        
 
         
         

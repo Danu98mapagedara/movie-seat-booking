@@ -7,6 +7,7 @@ import Footer from './components/Footer/Footer'
 import Home from './pages/Home/Home'
 import Contact from './pages/Contact/Contact'
 import Bookseat from './pages/Bookseat/Bookseat'
+import Cinema from './pages/Cinema/Cinema'
 
 
 function App() {
@@ -19,6 +20,7 @@ function App() {
           <Route path="/" element={<Home />} />
         <Route path="/contact" element={<Contact/>}/>
         <Route path="/bookseat/:id" element={<Bookseat/>}/>
+        <Route path="/cinemas" element={<Cinema/>}/>
         </Routes>}
         {/* <Footer/>  */}
       </Router>

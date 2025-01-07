@@ -163,9 +163,10 @@ const Bookseat = () => {
 
       {step === 2 && (
         <div className="seat-selection">
-          <h2>Select Your Seats</h2>
+          <h2 style={{color:'red'}}>Pick your  Seat</h2>
+          <h5 >Screen</h5>
           <div className="seats">
-            {Array.from({ length: 25 }, (_, index) => index + 1).map((seat) => (
+            {Array.from({ length: 35 }, (_, index) => index + 1).map((seat) => (
               <button
                 key={seat}
                 className={`seat-button ${

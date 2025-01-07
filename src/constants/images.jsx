@@ -13,6 +13,8 @@ import karate from '../assets/images/karatekid.jpg';
 import bradpit from '../assets/images/bradpit.jpg';
 import mickey from '../assets/images/mickey.jpg';
 import den from '../assets/images/den.jpg';
+import c1 from '../assets/images/c1.jpg';
+import c2 from '../assets/images/c2.jpg';
 
 
 
@@ -31,6 +33,8 @@ const images = {
    bradpit,
    mickey,
    den,
+   c1,
+   c2,
 }
 
 export default images;

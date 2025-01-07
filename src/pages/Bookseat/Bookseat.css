@@ -70,11 +70,17 @@ padding: 50px 100px;
     justify-content: center;
     gap: 10px;
   }
-  
+  .seat-selection h5 {
+padding: 10px 100px;
+background-color: white;
+color: black;
+margin-bottom: 20px;
+font-size: 1.5rem;
+  }
   .seat-button {
     width: 40px;
     height: 40px;
-    background-color: #f0f0f0;
+    background-color: #cfcf2c;
     border: 1px solid #ccc;
     border-radius: 5px;
     cursor: pointer;
@@ -84,7 +90,7 @@ padding: 50px 100px;
   
   .seat-button.selected {
     background-color: #007bff;
-    color: white;
+    color: rgba(214, 212, 97, 0.633);
     border: 1px solid #0056b3;
   }
   
