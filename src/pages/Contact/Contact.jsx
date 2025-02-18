@@ -2,17 +2,13 @@ import React, { useState } from 'react';
 import './Contact.css';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-
+import axios from 'axios';
 const Contact = () => {
   const [formdata, setFormdata] = useState({
     fname: '',
-    companyname: '',
     email: '',
     pnumber: '',
-    country: '',
-    jobrole: '',
-    interest: '',
-    budget: '',
+    message: '',
   });
 
   const [error, setError] = useState({});
@@ -27,14 +23,14 @@ const Contact = () => {
     if (name === "pnumber" && value.trim() !== "" && !/^[0-9]+$/.test(value)) {
       newError = "Please enter a valid number";
     }
-    if (name === "budget" && value.trim() !== "" && !/^[0-9]+$/.test(value)) {
+    if (name === "message" && value.trim() !== "" && !/^[0-9]+$/.test(value)) {
       newError = "Please enter a valid number";
     }
     setFormdata({ ...formdata, [name]: value });
     setError({ ...error, [name]: newError });
   };
 
-  const handlesubmit = (e) => {
+  const handlesubmit = async(e) => {
     setLoading(true);
     e.preventDefault();
     let errors = {};
@@ -42,42 +38,39 @@ const Contact = () => {
     if (!formdata.fname) {
       errors.fname = "Please fill full name";
     }
-    if (!formdata.companyname) {
-      errors.companyname = "Please fill company name";
-    }
+  
     if (!formdata.email) {
       errors.email = "Please fill email address";
     }
     if (!formdata.pnumber) {
       errors.pnumber = "Please fill phone number";
     }
-    if (!formdata.country) {
-      errors.country = "Please fill country";
-    }
-    if (!formdata.jobrole) {
-      errors.jobrole = "Please fill job role";
-    }
-    if (!formdata.interest) {
-      errors.interest = "Please fill interest";
-    }
-    if (!formdata.budget) {
-      errors.budget = "Please fill budget";
+  
+    if (!formdata.message) {
+      errors.message = "Please fill message";
     }
 
     setError(errors);
 
     
     if (Object.keys(errors).length === 0) {
-
+      try {
+      const RequestBody = {
+        fullnName: formdata.fname,
+        email: formdata.email,
+        phoneNumber: formdata.pnumber,
+        message: formdata.message,
+      }
+      console.log('Formdata:', RequestBody);
+      await axios.post('http://localhost:5000/contact', RequestBody);
+    } catch (error) {
+      console.log('Error:', error);
+    }
       setFormdata({
-        fname: '',
-    companyname: '',
+    fname: '',
     email: '',
     pnumber: '',
-    country: '',
-    jobrole: '',
-    interest: '',
-    budget: '',
+    message: '',
       });
       toast.success('Form submitted successfully!');
     }
@@ -120,8 +113,8 @@ const Contact = () => {
 
           <div className="form-column">
             <label className="contact-label">Message</label>
-            <input type="text" name="budget" onChange={handleChange} value={formdata.budget} />
-            {error.budget && <span className="error">{error.budget}</span>}
+            <input type="text" name="message" onChange={handleChange} value={formdata.message} />
+            {error.message && <span className="error">{error.message}</span>}
           </div>
         </div>
 

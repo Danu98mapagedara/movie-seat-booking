@@ -1,11 +1,14 @@
 import React, { useState } from "react";
 import { useParams } from "react-router-dom";
 import data from "../../constants/nowshow";
+import axios  from 'axios';
 import "./Bookseat.css";
 
 const Bookseat = () => {
-  const { id } = useParams(); // Extract movie ID
+  const { id } = useParams(); 
+  console.log("movie id is:",id);
   const movie = data.find((item) => item.id === id);
+
 
   const [formData, setFormData] = useState({
     moviename: "",
@@ -27,6 +30,7 @@ const Bookseat = () => {
 
   // Generate future dates
   const generateFutureDates = () => {
+    let i;
     const today = new Date();
     const dates = [];
     for (let i = 0; i < 3; i++) {
@@ -48,10 +52,30 @@ const Bookseat = () => {
   };
 
   // Handle form submission
-  const handleSubmit = (e) => {
+  const handleSubmit = async(e) => {
     e.preventDefault();
     console.log("Booking Details:", formData);
    
+    try{
+
+      const RequestBody ={
+        movieId:id,
+        movieName:formData.moviename,
+        watchDate:formData.watchdate,
+        showTime:formData.showtime,
+        userName: formData.username,
+        userEmail:formData.useremail,
+        mobileNumber: formData.mobilenumber,
+        seatNumber:formData.seatnumber.join(",") 
+      };
+      console.log("Request Body:",RequestBody);
+      await axios.post("http://localhost:8080/api/movies/booking",RequestBody);
+    }
+    catch(error){
+      consol.log("film post  errror",error);
+    }
+    
+
   };
 
   return (

@@ -28,16 +28,13 @@ const Herosection = () => {
               description:"Asanjaya,Sanjana,Heshan,Nonim and Yulan are the 5 members of Sri Lanka's leading boy band SOLO TOWN.The band's journey is shaped and unfolds against the backdrop of fame, friendships,relationships,mistakes,betrayals,selfishness and love."
              
             },
-           
-            
-          
           ]
           const [currentMovie, setCurrentMovie] = useState(0);
 
           useEffect(() => {
               const interval = setInterval(() => {
                   setCurrentMovie((prev) => (prev + 1) % movies.length);
-              }, 5000); // Change every 5 seconds
+              }, 3000);
               return () => clearInterval(interval);
           }, [movies.length]);
    
