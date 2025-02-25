@@ -66,10 +66,11 @@ const Bookseat = () => {
         userName: formData.username,
         userEmail:formData.useremail,
         mobileNumber: formData.mobilenumber,
-        seatNumber:formData.seatnumber.join(",") 
+        seatNumbers:formData.seatnumber.join(",") 
       };
-      console.log("Request Body:",RequestBody);
+      
       await axios.post("http://localhost:8080/api/movies/booking",RequestBody);
+      console.log("film post success");
     }
     catch(error){
       consol.log("film post  errror",error);
