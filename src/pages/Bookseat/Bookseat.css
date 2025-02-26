@@ -93,4 +93,7 @@ font-size: 1.5rem;
     color: rgba(214, 212, 97, 0.633);
     border: 1px solid #0056b3;
   }
-  
+  .seat-button.booked {
+    background-color: red;
+    cursor: not-allowed;
+  }

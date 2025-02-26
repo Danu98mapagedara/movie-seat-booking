@@ -1,14 +1,14 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import data from "../../constants/nowshow";
 import axios  from 'axios';
 import "./Bookseat.css";
+import { use } from "react";
 
 const Bookseat = () => {
   const { id } = useParams(); 
-  console.log("movie id is:",id);
+  
   const movie = data.find((item) => item.id === id);
-
 
   const [formData, setFormData] = useState({
     moviename: "",
@@ -19,8 +19,46 @@ const Bookseat = () => {
     mobilenumber: "",
     seatnumber: [],
   });
+  const [bookedSeats, setBookedSeats] = useState([]);
 
-  const [step, setStep] = useState(1); // Manage step state
+ // Fetch booked seats for selected movie
+ useEffect(() => {
+  if (formData.moviename) {
+    const fetchBookedSeats = async () => {
+      try {
+        const response = await axios.get(
+          `http://localhost:8080/api/movies/booking/seats/${formData.moviename}`
+        );
+        
+        console.log("Booked seats raw response:", response.data);
+
+        // Ensure data is converted into an array correctly
+        let seats = response.data;
+
+        if (typeof seats === "string") {
+          seats = seats.split(",").map(Number); 
+        } else if (!Array.isArray(seats)) {
+          seats = []; 
+        }
+
+        console.log("Processed booked seats:", seats);
+        setBookedSeats(seats);
+
+      } catch (error) {
+        console.error("Error fetching booked seats:", error);
+        setBookedSeats([]); // Ensure it's always an array
+      }
+    };
+
+    fetchBookedSeats();
+  }
+}, [formData.moviename]);
+
+
+
+
+
+  const [step, setStep] = useState(1); 
 
   // Handle input changes
   const handleChange = (e) => {
@@ -68,6 +106,11 @@ const Bookseat = () => {
         mobileNumber: formData.mobilenumber,
         seatNumbers:formData.seatnumber.join(",") 
       };
+          // Refresh booked seats after booking
+      setBookedSeats([...bookedSeats, ...formData.seatnumber]);
+
+      // Clear selected seats
+      setFormData({ ...formData, seatnumber: [] });
       
       await axios.post("http://localhost:8080/api/movies/booking",RequestBody);
       console.log("film post success");
@@ -190,19 +233,28 @@ const Bookseat = () => {
         <div className="seat-selection">
           <h2 style={{color:'red'}}>Pick your  Seat</h2>
           <h5 >Screen</h5>
-          <div className="seats">
-            {Array.from({ length: 35 }, (_, index) => index + 1).map((seat) => (
-              <button
-                key={seat}
-                className={`seat-button ${
-                  formData.seatnumber.includes(seat) ? "selected" : ""
-                }`}
-                onClick={() => handleSeatClick(seat)}
-              >
-                {seat}
-              </button>
-            ))}
-          </div>
+         <div className="seats">
+  {Array.from({ length: 35 }, (_, index) => index + 1).map((seat) => {
+    console.log("Seat number:", seat);
+    console.log("Is selected?", formData.seatnumber.includes(seat));
+    console.log("Is booked?", bookedSeats.includes(seat));
+
+    return (
+      <button
+        key={seat}
+        className={`seat-button ${
+          bookedSeats.includes(Number(seat)) ? "booked" : 
+          formData.seatnumber.includes(String(seat)) ? "selected" : ""
+        }`}
+        onClick={() => handleSeatClick(seat)}
+        disabled={bookedSeats.includes(Number(seat))}
+      >
+        {seat}
+      </button>
+    );
+  })}
+</div>
+
           <button
             className="btn-submit"
             onClick={handleSubmit}
